@@ -3,7 +3,9 @@ import 'package:firebase_auth/firebase_auth.dart';
 import 'package:flutter/material.dart';
 import 'package:jema_app/teacherchat.dart';
 import 'package:jema_app/classroomview.dart';
-import 'package:jema_app/addclassroom.dart'; 
+import 'package:jema_app/addclassroom.dart';
+
+import 'TeacherProfile.dart'; 
 
 class CheckKidsPage extends StatelessWidget {
   late User? user;
@@ -225,12 +227,24 @@ class CheckKidsPage extends StatelessWidget {
           ],
           selectedItemColor: Colors.blue,
           onTap: (index) {
-            // Handle bottom navigation item tap
-            if (index == 1) {
-              Navigator.push(
-                context,
-                MaterialPageRoute(builder: (context) => TeacherChatPage()),
-              );
+            switch (index) {
+              case 0:
+                // Navigate to Home
+                break;
+              case 1:
+                // Navigate to Chat
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TeacherChatPage()),
+                );
+                break;
+              case 2:
+                // Navigate to Profile
+                Navigator.push(
+                  context,
+                  MaterialPageRoute(builder: (context) => TeacherProfilePage()),
+                );
+                break;
             }
           },
         ),
